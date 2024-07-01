@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Livewire\SendMessage;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ Route::view('/', 'welcome');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified', 'mercureAuthorization'])
     ->name('dashboard');
+
+Route::get('sendmessage', SendMessage::class)
+    ->middleware(['auth', 'verified'])
+    ->name('sendmessage');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

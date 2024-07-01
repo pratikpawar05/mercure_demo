@@ -54,7 +54,7 @@ class MercureAuthorizationCookie
             'mercureAuthorization',
             $token,
             15,
-            '/', // or which path you have mercure running
+            parse_url(config('broadcasting.connections.mercure.url'), PHP_URL_PATH), // or which path you have mercure running
             parse_url(config('broadcasting.connections.mercure.url'), PHP_URL_HOST),
             $secure,
             true,

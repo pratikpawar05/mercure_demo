@@ -41,6 +41,7 @@ document.addEventListener('livewire:init', (event) => {
                 mercureEventSource.onmessage = (e) => {
                     const data = JSON.parse(e.data)
                     component.$wire.dispatch(event, [data])
+                    showToast(data['data']['payload']);
                 }
 
                 mercureEventSource.onerror = (e) => {
@@ -50,3 +51,19 @@ document.addEventListener('livewire:init', (event) => {
         })
     })
 })
+
+
+
+function showToast(message) {
+    var toast = document.getElementById('toast');
+    var toastMessage=document.getElementById('toast-message');
+    toastMessage.textContent=message;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    
+    setTimeout(function() {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 3000); // 3000ms = 3 seconds
+  
+}

@@ -10,7 +10,6 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -32,5 +31,20 @@
                 {{ $slot }}
             </main>
         </div>
+        <!-- Toast Message -->
+        <div id="toast" class="fixed bottom-5 right-5 bg-white border border-gray-300 shadow-lg rounded-lg p-4 opacity-0 transition-opacity duration-300">
+            <div class="flex items-center">
+                <div class="rounded-full bg-green-100 p-3">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                </div>
+                <div class="ml-3">
+                <p class="text-sm font-medium text-gray-900" >New Message</p>
+                <p class="text-sm text-gray-500" id="toast-message"></p>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
